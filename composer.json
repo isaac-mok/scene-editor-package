@@ -1,0 +1,22 @@
+{
+    "name": "bigmom/scene-editor",
+    "description": "A package to pull from Scene Editor API",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bigmom\\SceneEditor\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bigmom\\SceneEditor\\Providers\\SceneEditorServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.3",
+        "laravel/framework": "^8.0"
+    }
+}
