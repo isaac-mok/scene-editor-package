@@ -58,13 +58,17 @@ class PullScenes extends Command
 
             DB::transaction(function () use ($scenes) {
                 foreach ($scenes as $scene) {
-                    Scene::create([
-                        'name' => $scene['name'],
-                        'type' => $scene['type'],
-                        'url' => $scene['url'],
-                        'clickable_areas' => $scene['clickableAreas'],
-                        'extra_data' => $scene['extraData'],
-                    ]);
+                    Scene::updateOrCreate(
+                        [
+                            'name' => $scene['name'],
+                        ],
+                        [
+                            'type' => $scene['type'],
+                            'url' => $scene['url'],
+                            'clickable_areas' => $scene['clickableAreas'],
+                            'extra_data' => $scene['extraData'],
+                        ]
+                    );
                 }
             });
 
